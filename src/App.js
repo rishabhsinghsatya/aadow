@@ -8,11 +8,11 @@ import Orders from "./components/Orders/Orders";
 function App() {
   return (
     <div>
-      <TopNavbar />
+      {/* <TopNavbar />
       <BottomNav />
-      <Overview />
+      <Overview /> */}
       {/* <Dashboard /> */}
-      {/* <Orders /> */}
+      <Orders />
     </div>
   );
 }
