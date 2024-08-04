@@ -7,6 +7,9 @@ const Overview = () => {
   const [selectedUsers, setSelectedUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 10;
+  //for filters
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const metrics = [
     { label: "Total members", value: "3,240", change: "+20%" },
@@ -89,6 +92,18 @@ const Overview = () => {
     },
   ];
 
+  const options = ["Last 12 months", "All products", "Last 6 months"];
+  const handleSelect = (option) => {
+    if (!selectedOptions.includes(option)) {
+      setSelectedOptions([...selectedOptions, option]);
+    }
+  };
+  const handleRemove = (optionToRemove) => {
+    setSelectedOptions(
+      selectedOptions.filter((option) => option !== optionToRemove)
+    );
+  };
+
   const handleCheckboxChange = (userId) => {
     setSelectedUsers((prevSelectedUsers) =>
       prevSelectedUsers.includes(userId)
@@ -134,15 +149,59 @@ const Overview = () => {
           </div>
         ))}
       </div>
-
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="search-input"
-        />
+      <div className="search-filter-bar">
+        <div className="multi-select-container">
+          {selectedOptions.map((option) => (
+            <div key={option} className="selected-option">
+              <span>{option}</span>
+              <button
+                onClick={() => handleRemove(option)}
+                className="remove-button"
+              >
+                &#x2715;
+              </button>
+            </div>
+          ))}
+          <div className="dropdown-container">
+            <button
+              type="button"
+              className="dropdown-button"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {/* {selectedOptions.length > 0
+                ? "Add/Remove filters"
+                : "Select options"} */}
+              More Filters
+            </button>
+            {isOpen && (
+              <div className="dropdown-menu">
+                {options.map((option) => (
+                  <button
+                    key={option}
+                    className={`menu-item ${
+                      selectedOptions.includes(option) ? "selected" : ""
+                    }`}
+                    onClick={() => handleSelect(option)}
+                  >
+                    {option}
+                    {selectedOptions.includes(option) && (
+                      <span className="checkmark">✓</span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
+        </div>
       </div>
 
       <table className="user-table">
