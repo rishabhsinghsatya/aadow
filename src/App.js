@@ -11,8 +11,8 @@ function App() {
       {/* <TopNavbar />
       <BottomNav />
       <Overview /> */}
-      <Dashboard />
-      {/* <Orders /> */}
+      {/* <Dashboard /> */}
+      <Orders />
     </div>
   );
 }

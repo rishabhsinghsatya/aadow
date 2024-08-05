@@ -128,7 +128,9 @@ const Orders = () => {
               <td>{order.date}</td>
               <td>
                 <div className="customer-info">
-                  <div className="avatar"></div>
+                  <div className="avatar">
+                    <img src="https://picsum.photos/id/270/200/300" alt="" />
+                  </div>
                   <div>
                     <div className="customer-name">{order.name}</div>
                     <div className="customer-email">{order.email}</div>
