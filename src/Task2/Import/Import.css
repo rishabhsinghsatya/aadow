@@ -1,0 +1,128 @@
+.import-contacts-container {
+  font-family: Arial, sans-serif;
+  width: 45rem;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 2px solid rgb(201, 197, 197);
+  height: 8rem;
+  padding: 0px 15px;
+  border-radius: 8px;
+  background-color: #f5f6f8;
+}
+
+.stat-box {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.stat-description {
+  font-size: 14px;
+  color: #666;
+}
+
+.import-name-container {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.input-description {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+input[type="text"] {
+  width: 97%;
+  padding: 8px;
+  margin: 4px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.consent-container {
+  margin-bottom: 20px;
+}
+
+.consent-container label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.buttons-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid rgb(218, 216, 216);
+  padding: 12px 0px 0px 0px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.cancel-button{
+    background-color: transparent;
+    color: #666;
+}
+.back-button {
+  background-color: transparent;
+  color: #666;
+  border: 1px solid grey;
+}
+
+.back-and-import {
+  display: flex;
+  align-items: center;
+}
+.import-button {
+  background-color: #5c6bc0;
+  color: white;
+}
+
+.import-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
