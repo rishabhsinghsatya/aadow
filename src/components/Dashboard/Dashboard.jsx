@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Dashboard.css";
+import menuIcon from "../../assets/menu-icon.svg";
+import moreIcon from "../../assets/more-icon.svg";
 
 const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -7,12 +9,16 @@ const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedTab, setSelectedTab] = useState("12 months");
 
-  const customersPerPage = 5; // You can adjust this number as needed
+  const customersPerPage = 5;
+
+  //for filters
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const metrics = [
-    { icon: "💰", label: "Sales", value: "$88,920.44", change: "+8%" },
+    { icon: "💰", label: "Sales", value: "$88,9.44", change: "+8%" },
     { icon: "👥", label: "Customers", value: "112,440", change: "+12%" },
-    { icon: "🔥", label: "Active now", value: "56", change: "+7%" },
+    { icon: "🔥", label: "Active now", value: "561,112", change: "+7%" },
   ];
 
   const allCustomers = [
@@ -56,8 +62,18 @@ const Dashboard = () => {
       revenue: "$180.00",
       status: "Subscribed",
     },
-    // Add more customers as needed
   ];
+  const options = ["Last 12 months", "All products", "Last 6 months"];
+  const handleSelect = (option) => {
+    if (!selectedOptions.includes(option)) {
+      setSelectedOptions([...selectedOptions, option]);
+    }
+  };
+  const handleRemove = (optionToRemove) => {
+    setSelectedOptions(
+      selectedOptions.filter((option) => option !== optionToRemove)
+    );
+  };
 
   const handleCheckboxChange = (customerId) => {
     setSelectedCustomers((prevSelectedCustomers) =>
@@ -112,9 +128,10 @@ const Dashboard = () => {
           <h1>My dashboard</h1>
           <p>Here's an overview of your store traffic and customers.</p>
         </div>
-        <div className="user-avatar">
+        <div className="users-avatar">
           <img src="https://picsum.photos/id/270/200/300" alt="" />
-          <div>Caitlyn King</div>
+          <p style={{ fontSize: "15px", fontWeight: "500" }}>Caitlyn King</p>
+          <img src={menuIcon} style={{ width: "20px" }} alt="menu icon" />
         </div>
       </header>
 
@@ -133,61 +150,116 @@ const Dashboard = () => {
 
       <div className="chart-container">
         <div className="chart-header">
-          <h3>Revenue</h3>
-          <p className="revenue-value">$88,820.44</p>
-          <span className="revenue-change">+8%</span>
+          <div className="revenue">
+            <h3>Revenue</h3>
+            <p className="revenue-value">
+              $88,820.44{" "}
+              <span className="revenue-change" style={{ fontSize: "15px" }}>
+                +8%
+              </span>
+            </p>
+          </div>
+          <div className="tab-filter">
+            <div className="chart-tabs">
+              <button
+                className={selectedTab === "12 months" ? "active" : ""}
+                onClick={() => handleTabChange("12 months")}
+              >
+                12 months
+              </button>
+              <button
+                className={selectedTab === "30 days" ? "active" : ""}
+                onClick={() => handleTabChange("30 days")}
+              >
+                30 days
+              </button>
+              <button
+                className={selectedTab === "7 days" ? "active" : ""}
+                onClick={() => handleTabChange("7 days")}
+              >
+                7 days
+              </button>
+              <button
+                className={selectedTab === "24 hours" ? "active" : ""}
+                onClick={() => handleTabChange("24 hours")}
+              >
+                24 hours
+              </button>
+            </div>
+            <div className="filter-container">
+              {selectedOptions.map((option) => (
+                <div key={option} className="filter-selected-option">
+                  <span>{option}</span>
+                  <button
+                    onClick={() => handleRemove(option)}
+                    className="remove-button"
+                  >
+                    &#x2715;
+                  </button>
+                </div>
+              ))}
+              <div className="filter-dropdown-container">
+                <button
+                  type="button"
+                  className="filter-dropdown-button"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  {/* {selectedOptions.length > 0
+                ? "Add/Remove filters"
+                : "Select options"} */}
+                  More Filters
+                </button>
+                {isOpen && (
+                  <div className="filter-dropdown-menu">
+                    {options.map((option) => (
+                      <button
+                        key={option}
+                        className={`filter-menu-item ${
+                          selectedOptions.includes(option) ? "selected" : ""
+                        }`}
+                        onClick={() => handleSelect(option)}
+                      >
+                        {option}
+                        {selectedOptions.includes(option) && (
+                          <span className="filter-checkmark">✓</span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="chart-tabs">
-          <button
-            className={selectedTab === "12 months" ? "active" : ""}
-            onClick={() => handleTabChange("12 months")}
-          >
-            12 months
-          </button>
-          <button
-            className={selectedTab === "30 days" ? "active" : ""}
-            onClick={() => handleTabChange("30 days")}
-          >
-            30 days
-          </button>
-          <button
-            className={selectedTab === "7 days" ? "active" : ""}
-            onClick={() => handleTabChange("7 days")}
-          >
-            7 days
-          </button>
-          <button
-            className={selectedTab === "24 hours" ? "active" : ""}
-            onClick={() => handleTabChange("24 hours")}
-          >
-            24 hours
-          </button>
-        </div>
+
         <div className="chart-placeholder">{renderChartData()}</div>
         <div className="chart-date-range">1 Jan 2024 - 31 Dec 2024</div>
       </div>
 
       <div className="customers-container">
-        <h3>
-          Customers <span className="customer-count">1,253</span>
-        </h3>
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
-          />
+        <div className="customers-header">
+          <h3>
+            Customers <span className="customer-count">1,253</span>
+          </h3>
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-input"
+            />
+          </div>
         </div>
         <table className="customers-table">
           <thead>
             <tr>
               <th></th>
               <th>Customer</th>
-              <th>Purchase date</th>
-              <th>Total revenue</th>
-              <th>Status</th>
+              <th className="purchase-date">Purchase date</th>
+              <th className="total-revenue">Total revenue</th>
+              <th className="status">Status</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -211,10 +283,17 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </td>
-                <td>{customer.date}</td>
-                <td>{customer.revenue}</td>
-                <td>
+                <td className="purchase-date">{customer.date}</td>
+                <td className="total-revenue">{customer.revenue}</td>
+                <td className="status">
                   <span className="status-badge">{customer.status}</span>
+                </td>
+                <td>
+                  <img
+                    src={moreIcon}
+                    style={{ width: "20px" }}
+                    alt="menu icon"
+                  />
                 </td>
               </tr>
             ))}
