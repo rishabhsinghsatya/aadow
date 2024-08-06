@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 import TopNavbar from "./components/TopNavbar/TopNavbar";
 import BottomNav from "./components/BottomNav/BottomNav";
@@ -11,6 +11,7 @@ import Upload from "./Task2/Upload/Upload";
 import Import from "./Task2/Import/Import";
 import Map from "./Task2/Map/Map";
 import Identify from "./Task2/Identify/Identify";
+import MegaMenu from "./Task2/MegaMenu/Megamenu";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -36,8 +37,9 @@ function App() {
       <Overview /> */}
       {/* <Dashboard /> */}
       {/* <Orders /> */}
-      <Navbar setCurrentPage={setCurrentPage} />
-      <header className="App-header">{renderPage()}</header>
+      {/* <Navbar setCurrentPage={setCurrentPage} />
+      <header className="App-header">{renderPage()}</header> */}
+      <MegaMenu />
     </div>
   );
 }
