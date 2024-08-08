@@ -12,6 +12,7 @@ import Import from "./Task2/Import/Import";
 import Map from "./Task2/Map/Map";
 import Identify from "./Task2/Identify/Identify";
 import MegaMenu from "./Task2/MegaMenu/Megamenu";
+import CampaignSettingsWithStyles from "./Task3/Campaign/Campaign";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -40,6 +41,7 @@ function App() {
       {/* <Navbar setCurrentPage={setCurrentPage} />
       <header className="App-header">{renderPage()}</header> */}
       <MegaMenu />
+      {/* <CampaignSettingsWithStyles /> */}
     </div>
   );
 }
