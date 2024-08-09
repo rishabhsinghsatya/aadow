@@ -1,285 +1,326 @@
 import React, { useState } from "react";
+import "./Campaign.css";
 
-const CampaignSettings = () => {
-    const [expanded, setExpanded] = useState({
-        campaignDetails: true,
-        budget: false,
-        googleMerchantCenter: false,
-        urlExpansion: false
-      });
-      const [campaignName, setCampaignName] = useState('Campaign 209175');
-      const [biddingStrategy, setBiddingStrategy] = useState('Conversions');
-      const [country, setCountry] = useState('United States');
-      const [language, setLanguage] = useState('English');
-      const [budget, setBudget] = useState(50);
-    
-      const toggleExpand = (section) => {
-        setExpanded(prev => ({ ...prev, [section]: !prev[section] }));
-      };
-    
-      return (
-        <div className="campaign-settings">
-          <div className="progress-bar">
-            <span className="active">Campaign settings</span>
-            <span>Asset group</span>
-            <span>Confirmation</span>
-          </div>
-    
-          <h1>Campaign settings</h1>
-    
-          <div className="section">
-            <div className="section-header" onClick={() => toggleExpand('campaignDetails')}>
-              <span>Campaign details</span>
-              <span>{expanded.campaignDetails ? '▲' : '▼'}</span>
-            </div>
-            {expanded.campaignDetails && (
-              <div className="section-content">
-                <div className="form-group">
-                  <label>Campaign name</label>
-                  <input type="text" value={campaignName} onChange={(e) => setCampaignName(e.target.value)} disabled />
-                  <small>You can't change the campaign name.</small>
-                </div>
-                <div className="form-group">
-                  <label>Bidding strategy</label>
-                  <select value={biddingStrategy} onChange={(e) => setBiddingStrategy(e.target.value)} disabled>
-                    <option value="Conversions">Conversions</option>
-                  </select>
-                  <small>You can't change the bidding strategy as Google use the Conversion strategy to optimize for conversions and maximize $.</small>
-                </div>
-                <div className="form-group">
-                  <label>Country & Language</label>
-                  <div className="country-language">
-                    <select value={country} onChange={(e) => setCountry(e.target.value)}>
-                      <option value="United States">United States</option>
-                    </select>
-                    <select value={language} onChange={(e) => setLanguage(e.target.value)}>
-                      <option value="English">English</option>
-                    </select>
-                  </div>
-                  <button className="add-market">+ Add another market</button>
-                </div>
+const Campaign = () => {
+  const [activeTab, setActiveTab] = useState("campaignSettings");
+  const [expanded, setExpanded] = useState({
+    campaignDetails: true,
+    budget: false,
+    googleMerchantCenter: false,
+    urlExpansion: false,
+  });
+  const [campaignName, setCampaignName] = useState("Campaign 209175");
+  const [biddingStrategy, setBiddingStrategy] = useState("Conversions");
+  const [country, setCountry] = useState("United States");
+  const [language, setLanguage] = useState("English");
+  const [budget, setBudget] = useState(50);
+  const [urls, setUrls] = useState(["https://example.com"]);
+
+  const toggleExpand = (section) => {
+    setExpanded((prev) => ({ ...prev, [section]: !prev[section] }));
+  };
+
+  const addUrl = () => {
+    setUrls([...urls, ""]);
+  };
+
+  const updateUrl = (index, newUrl) => {
+    const newUrls = urls.map((url, i) => (i === index ? newUrl : url));
+    setUrls(newUrls);
+  };
+
+  const removeUrl = (index) => {
+    const newUrls = urls.filter((_, i) => i !== index);
+    setUrls(newUrls);
+  };
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "campaignSettings":
+        return (
+          <div className="campaign-body">
+            <h3>Campaign settings</h3>
+
+            <div className="section">
+              <div
+                className="section-header"
+                onClick={() => toggleExpand("campaignDetails")}
+                style={{
+                  backgroundColor: expanded.campaignDetails
+                    ? "#f8f8f8"
+                    : "#fff",
+                }}
+              >
+                <span>Campaign details</span>
+                <span>{expanded.campaignDetails ? "▲" : "▼"}</span>
               </div>
-            )}
-          </div>
-    
-          <div className="section">
-            <div className="section-header" onClick={() => toggleExpand('budget')}>
-              <span>Budget</span>
-              <span>{expanded.budget ? '▲' : '▼'}</span>
-            </div>
-            {expanded.budget && (
-              <div className="section-content">
-                <div className="form-group">
-                  <label>Fixed budget</label>
-                  <input type="number" value={budget} onChange={(e) => setBudget(e.target.value)} />
-                  <span>USD</span>
+              {expanded.campaignDetails && (
+                <div className="section-content">
+                  <div className="form-group">
+                    <div className="form-group-left">
+                      <label>Campaign name</label>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Non fuga nihil beatae!
+                      </p>
+                    </div>
+                    <div className="form-group-right">
+                      <input
+                        type="text"
+                        value={campaignName}
+                        onChange={(e) => setCampaignName(e.target.value)}
+                        disabled
+                      />
+                      <small>You can't change the campaign name.</small>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="form-group">
+                    <div className="form-group-left">
+                      <label>Bidding strategy</label>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Reprehenderit blanditiis tenetur fuga!
+                      </p>
+                    </div>
+                    <div className="form-group-right">
+                      <select
+                        value={biddingStrategy}
+                        onChange={(e) => setBiddingStrategy(e.target.value)}
+                        disabled
+                      >
+                        <option value="Conversions">Conversions</option>
+                      </select>
+                      <small>
+                        You can't change the bidding strategy as Google uses the
+                        Conversion strategy to optimize for conversions and
+                        maximize $.
+                      </small>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="form-group">
+                    <div className="form-group-left">
+                      <label>Country & Language</label>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit.
+                      </p>
+                    </div>
+                    <div className="form-group-right">
+                      <div className="country-language">
+                        <select
+                          value={country}
+                          onChange={(e) => setCountry(e.target.value)}
+                        >
+                          <option value="United States">United States</option>
+                        </select>
+                        <select
+                          value={language}
+                          onChange={(e) => setLanguage(e.target.value)}
+                        >
+                          <option value="English">English</option>
+                        </select>
+                      </div>
+                      <button className="add-market">
+                        + Add another market
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
-    
-          <div className="section">
-            <div className="section-header" onClick={() => toggleExpand('googleMerchantCenter')}>
-              <span>Google Merchant Center</span>
-              <span>{expanded.googleMerchantCenter ? '▲' : '▼'}</span>
+              )}
             </div>
-            {expanded.googleMerchantCenter && (
-              <div className="section-content">
-                <h3>Choose Merchant Center account</h3>
-                <div className="merchant-account">
-                  <div>
-                    <span className="flag">🇦🇹</span>
-                    <span>Austria</span>
-                    <span>971-412-1543</span>
-                    <button className="connect">Connect</button>
-                  </div>
-                  <div>
-                    <span className="flag">🇨🇭</span>
-                    <span>Switzerland</span>
-                    <span>285-129-2854</span>
-                    <button className="connect">Connect</button>
-                  </div>
-                  <div>
-                    <span className="flag">🇨🇭</span>
-                    <span>Switzerland</span>
-                    <span>285-688-9691</span>
-                    <button className="add-feed">Add feed</button>
+
+            <div className="section">
+              <div
+                className="section-header"
+                onClick={() => toggleExpand("budget")}
+                style={{
+                  backgroundColor: expanded.campaignDetails
+                    ? "#f8f8f8"
+                    : "#fff",
+                }}
+              >
+                <span>Budget</span>
+                <span>{expanded.budget ? "▲" : "▼"}</span>
+              </div>
+              {expanded.budget && (
+                <div className="section-content">
+                  <div className="form-group">
+                    <div className="form-group-left">
+                      <label>Fixed budget</label>
+                    </div>
+                    <div className="form-group-right">
+                      <input
+                        type="number"
+                        value={budget}
+                        onChange={(e) => setBudget(e.target.value)}
+                      />
+                      <span>USD</span>
+                    </div>
                   </div>
                 </div>
-                <button className="create-account">+ Create Merchant Center account</button>
+              )}
+            </div>
+
+            <div className="section">
+              <div
+                className="section-header"
+                onClick={() => toggleExpand("googleMerchantCenter")}
+                style={{
+                  backgroundColor: expanded.campaignDetails
+                    ? "#f8f8f8"
+                    : "#fff",
+                }}
+              >
+                <span>Google Merchant Center</span>
+                <span>{expanded.googleMerchantCenter ? "▲" : "▼"}</span>
               </div>
-            )}
-          </div>
-    
-          <div className="section">
-            <div className="section-header" onClick={() => toggleExpand('urlExpansion')}>
-              <span>URL Expansion</span>
-              <span>{expanded.urlExpansion ? '▲' : '▼'}</span>
+              {expanded.googleMerchantCenter && (
+                <div className="section-content">
+                  <div className="form-group">
+                    {" "}
+                    <div className="form-group-left">
+                      <h4>Choose Merchant Center account</h4>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Placeat saepe vitae enim ut quo.
+                      </p>
+                    </div>
+                    <div className="form-group-right">
+                      {" "}
+                      <div className="merchant-account">
+                        <div className="country-sec">
+                          <p>
+                            <span className="flag">🏳️‍🌈</span>Austria
+                          </p>
+
+                          {/* <span>971-412-1543</span>
+                          <button className="connect">Connect</button> */}
+                        </div>
+                        <div>
+                          {/* <span className="flag">🇨🇭</span>
+                          <span>Switzerland</span> */}
+                          <span>285-129-2854</span>
+                          <button className="connect">Connect</button>
+                        </div>
+                        <div>
+                          {/* <span className="flag">🇨🇭</span>
+                          <span>Switzerland</span> */}
+                          <span>285-129-2854</span>
+                          <button className="connect">Connect</button>
+                        </div>
+                        <div>
+                          <p>
+                            <span className="flag">🏁</span>Switzerland
+                          </p>
+
+                          {/* <span>285-688-9691</span>
+                          <button className="add-feed">Add feed</button> */}
+                        </div>
+                        <div>
+                          {/* <span className="flag">🇨🇭</span>
+                          <span>Switzerland</span> */}
+                          <span>285-129-2854</span>
+                          <button className="add-feed">Add feed</button>
+                        </div>
+                        <button className="create-account">
+                          + Create Merchant Center account
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="section">
+              <div
+                className="section-header"
+                onClick={() => toggleExpand("urlExpansion")}
+                style={{
+                  backgroundColor: expanded.campaignDetails
+                    ? "#f8f8f8"
+                    : "#fff",
+                }}
+              >
+                <span>URL Expansion</span>
+                <span>{expanded.urlExpansion ? "▲" : "▼"}</span>
+              </div>
+              {expanded.urlExpansion && (
+                <div className="section-content">
+                  <h3>Manage URLs</h3>
+                  {urls.map((url, index) => (
+                    <div key={index} className="form-group url-group">
+                      <input
+                        type="text"
+                        value={url}
+                        onChange={(e) => updateUrl(index, e.target.value)}
+                      />
+                      <button onClick={() => removeUrl(index)}>Remove</button>
+                    </div>
+                  ))}
+                  <button onClick={addUrl}>+ Add URL</button>
+                </div>
+              )}
             </div>
           </div>
-    
-          <div className="footer">
-            <span className="saved">Saved just now</span>
-            <div>
-              <button className="cancel">Cancel</button>
-              <button className="continue">Continue</button>
-            </div>
-          </div>
+        );
+      case "assetGroup":
+        return <h1>Asset group (Content goes here)</h1>;
+      case "confirmation":
+        return <h1>Confirmation (Content goes here)</h1>;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="campaign-settings">
+      <div className="progress">
+        <h4>
+          <span
+            className={activeTab === "campaignSettings" ? "active" : ""}
+            onClick={() => setActiveTab("campaignSettings")}
+          >
+            1
+          </span>
+          Campaign settings
+        </h4>
+        <div className="hr"></div>
+
+        <h4>
+          <span
+            className={activeTab === "assetGroup" ? "active" : ""}
+            onClick={() => setActiveTab("assetGroup")}
+          >
+            2
+          </span>
+          Asset group
+        </h4>
+        <div className="hr"></div>
+        <h4>
+          <span
+            className={activeTab === "confirmation" ? "active" : ""}
+            onClick={() => setActiveTab("confirmation")}
+          >
+            3
+          </span>
+          Confirmation
+        </h4>
+      </div>
+
+      {renderContent()}
+
+      <div className="footer">
+        <span className="saved">Saved just now</span>
+        <div>
+          <button className="cancel-btn">Cancel</button>
+          <button className="continue-btn">Continue</button>
         </div>
-      );
+      </div>
+    </div>
+  );
 };
 
-const styles = `
-  .campaign-settings {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-  .progress-bar {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-
-  .progress-bar span {
-    padding: 5px 10px;
-    background-color: #f0f0f0;
-    border-radius: 15px;
-  }
-
-  .progress-bar .active {
-    background-color: #007bff;
-    color: white;
-  }
-
-  h1 {
-    margin-bottom: 20px;
-  }
-
-  .section {
-    margin-bottom: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-  }
-
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #f8f8f8;
-    cursor: pointer;
-  }
-
-  .section-content {
-    padding: 20px;
-  }
-
-  .form-group {
-    margin-bottom: 15px;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-
-  input, select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  input[disabled], select[disabled] {
-    background-color: #f0f0f0;
-  }
-
-  small {
-    display: block;
-    color: #666;
-    margin-top: 5px;
-  }
-
-  .country-language {
-    display: flex;
-    gap: 10px;
-  }
-
-  .country-language select {
-    flex: 1;
-  }
-
-  .add-market, .create-account {
-    display: block;
-    margin-top: 10px;
-    color: #007bff;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .merchant-account > div {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-
-  .merchant-account span {
-    margin-right: 10px;
-  }
-
-  .connect, .add-feed {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .connect {
-    background-color: #007bff;
-    color: white;
-  }
-
-  .add-feed {
-    background-color: #f0f0f0;
-  }
-
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-  }
-
-  .saved {
-    color: #28a745;
-  }
-
-  .cancel, .continue {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .cancel {
-    background-color: #f0f0f0;
-    margin-right: 10px;
-  }
-
-  .continue {
-    background-color: #007bff;
-    color: white;
-  }
-`;
-
-const CampaignSettingsWithStyles = () => (
-  <>
-    <style>{styles}</style>
-    <CampaignSettings />
-  </>
-);
-
-export default CampaignSettingsWithStyles;
+export default Campaign;
