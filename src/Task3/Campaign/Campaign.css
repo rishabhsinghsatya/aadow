@@ -1,9 +1,6 @@
 .campaign-settings {
-  /* font-family: Arial, sans-serif; */
   width: 100%;
-  /* max-height: 100vh; */
-  /* margin: 0 auto; */
-  /* padding: 20px; */
+  
   background-color: #f8f9fa;
   height: 100vh;
   display: flex;
@@ -11,9 +8,7 @@
   justify-content: space-between;
 }
 .campaign-body {
-  /* height: 100vh; */
   padding: 0px 6rem;
-  /* background-color: yellow; */
   height: 80vh;
   max-height: 90vh;
   overflow-y: scroll;
@@ -30,11 +25,9 @@
   gap: 1rem;
   align-items: center;
   padding-left: 6rem;
-  /* margin-left: 5rem; */
   height: 3.5rem;
   background-color: #fff;
   border-bottom: 2px solid #dbd8d8;
-  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
 
 .progress span {
@@ -46,7 +39,6 @@
 }
 
 .progress .active {
-  /* background-color: #007bff; */
   color: #007bff;
   border: 2px solid #007bff;
 }
@@ -83,17 +75,13 @@ h3 {
 }
 
 .form-group {
-  /* margin-bottom: 15px; */
   margin: 22px 0px;
   display: flex;
-  /* background-color: yellow; */
 }
 .form-group-left {
-  /* background-color: red; */
   width: 35%;
 }
 .form-group-right {
-  /* background-color: blue; */
   width: 65%;
 }
 
@@ -146,11 +134,9 @@ small {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin-bottom: 10px; */
   border: 1px solid grey;
   border-radius: 5px;
   padding: 0px 10px;
-
 }
 .merchant-account > div {
   display: flex;
@@ -159,7 +145,6 @@ small {
   align-items: center;
   width: 100%;
   height: 2rem;
-  /* margin-bottom: 10px; */
   border-bottom: 1px solid grey;
 }
 
@@ -173,17 +158,8 @@ small {
   margin-top: 10px;
 }
 
-
-
-
-
 .merchant-account-table td button {
   margin-left: 10px;
-}
-
-.create-account {
-  /* margin-top: 10px; */
-  /* display: block; */
 }
 
 .connect,
@@ -209,10 +185,7 @@ small {
   align-items: center;
   border-top: 2px solid #dbd8d8;
   padding: 0.8rem 6rem;
-  /* background-color: lightseagreen; */
-  /* position: absolute; */
-  /* bottom: 0px; */
-  /* margin-top: 20px; */
+  
 }
 
 .saved {
@@ -228,7 +201,6 @@ small {
 }
 
 .cancel-btn {
-  /* background-color: #fff; */
   margin-right: 10px;
 }
 

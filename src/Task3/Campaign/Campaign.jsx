@@ -194,19 +194,12 @@ const Campaign = () => {
                           <p>
                             <span className="flag">🏳️‍🌈</span>Austria
                           </p>
-
-                          {/* <span>971-412-1543</span>
-                          <button className="connect">Connect</button> */}
                         </div>
                         <div>
-                          {/* <span className="flag">🇨🇭</span>
-                          <span>Switzerland</span> */}
                           <span>285-129-2854</span>
                           <button className="connect">Connect</button>
                         </div>
                         <div>
-                          {/* <span className="flag">🇨🇭</span>
-                          <span>Switzerland</span> */}
                           <span>285-129-2854</span>
                           <button className="connect">Connect</button>
                         </div>
@@ -214,13 +207,8 @@ const Campaign = () => {
                           <p>
                             <span className="flag">🏁</span>Switzerland
                           </p>
-
-                          {/* <span>285-688-9691</span>
-                          <button className="add-feed">Add feed</button> */}
                         </div>
                         <div>
-                          {/* <span className="flag">🇨🇭</span>
-                          <span>Switzerland</span> */}
                           <span>285-129-2854</span>
                           <button className="add-feed">Add feed</button>
                         </div>
