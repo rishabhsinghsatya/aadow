@@ -13,8 +13,8 @@ import Map from "./Task2/Map/Map";
 import Identify from "./Task2/Identify/Identify";
 import MegaMenu from "./Task2/MegaMenu/Megamenu";
 import Campaign from "./Task3/Campaign/Campaign";
-import Sidebar from "./Task4/Sidebar/Sidebar";
-import SidebarNav from "./Task5/SidebarNav";
+import SidebarNav from "./Task5/Navbar/SidebarNav";
+import NewsletterFooter from "./Task5/Footer/Footer";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -45,7 +45,8 @@ function App() {
       {/* <MegaMenu /> */}
       {/* <Campaign /> */}
       {/* <Sidebar /> */}
-      <SidebarNav />
+      {/* <SidebarNav /> */}
+      <NewsletterFooter />
     </div>
   );
 }
