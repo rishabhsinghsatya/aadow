@@ -13,6 +13,8 @@ import Map from "./Task2/Map/Map";
 import Identify from "./Task2/Identify/Identify";
 import MegaMenu from "./Task2/MegaMenu/Megamenu";
 import Campaign from "./Task3/Campaign/Campaign";
+import Sidebar from "./Task4/Sidebar/Sidebar";
+import SidebarNav from "./Task5/SidebarNav";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -41,7 +43,9 @@ function App() {
       {/* <Navbar setCurrentPage={setCurrentPage} />
       <header className="App-header">{renderPage()}</header> */}
       {/* <MegaMenu /> */}
-      <Campaign />
+      {/* <Campaign /> */}
+      {/* <Sidebar /> */}
+      <SidebarNav />
     </div>
   );
 }
