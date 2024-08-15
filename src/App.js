@@ -15,6 +15,7 @@ import MegaMenu from "./Task2/MegaMenu/Megamenu";
 import Campaign from "./Task3/Campaign/Campaign";
 import SidebarNav from "./Task5/Navbar/SidebarNav";
 import NewsletterFooter from "./Task5/Footer/Footer";
+import FirstFooter from "./Task5/FirstFooter/FirstFooter";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -46,7 +47,8 @@ function App() {
       {/* <Campaign /> */}
       {/* <Sidebar /> */}
       {/* <SidebarNav /> */}
-      <NewsletterFooter />
+      {/* <NewsletterFooter /> */}
+      <FirstFooter/>
     </div>
   );
 }
