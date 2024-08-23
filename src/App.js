@@ -16,6 +16,8 @@ import Campaign from "./Task3/Campaign/Campaign";
 import SidebarNav from "./Task5/Navbar/SidebarNav";
 import NewsletterFooter from "./Task5/Footer/Footer";
 import FirstFooter from "./Task5/FirstFooter/FirstFooter";
+import TriggerWorkflow from "./Task6/TriggerWorkflow/TriggerWorkflow";
+import Broadcast from "./Task6/Broadcast/Broadcast";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -48,7 +50,9 @@ function App() {
       {/* <Sidebar /> */}
       {/* <SidebarNav /> */}
       {/* <NewsletterFooter /> */}
-      <FirstFooter/>
+      {/* <FirstFooter/> */}
+      {/* <TriggerWorkflow /> */}
+      <Broadcast/>
     </div>
   );
 }
