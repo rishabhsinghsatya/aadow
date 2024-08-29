@@ -108,7 +108,7 @@ const Broadcast = () => {
                 <div>{data.track}</div>
               </div>
               <p>{renderStatus(data.status)}</p>
-              <ChartColumnIncreasing  className="graph-icon"/>
+              <ChartColumnIncreasing className="graph-icon" />
             </div>
           </div>
         ))}

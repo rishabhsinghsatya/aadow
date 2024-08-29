@@ -1,3 +1,11 @@
+import {
+  ChevronDown,
+  Cloud,
+  Filter,
+  FilterIcon,
+  Link,
+  Trash2,
+} from "lucide-react";
 import React, { useState } from "react";
 
 const FilterRow = ({ onDelete }) => (
@@ -26,10 +34,10 @@ const FilterRow = ({ onDelete }) => (
     />
 
     <button
-      className="p-2 bg-white text-black rounded hover:bg-red-600"
+      // className="p-2 bg-white text-black rounded hover:bg-gray-300"
       onClick={onDelete}
     >
-      Delete
+      <Trash2 className="text-red-600 bg-white  rounded hover:bg-gray-300" />{" "}
     </button>
   </div>
 );
@@ -60,10 +68,10 @@ const SecondFilterRow = ({ onDelete }) => (
     />
 
     <button
-      className="p-2 bg-white text-black rounded hover:bg-red-600"
+      // className="p-2 bg-white text-black rounded hover:bg-gray-300"
       onClick={onDelete}
     >
-      Delete
+      <Trash2 className="text-red-600 bg-white  rounded hover:bg-gray-300" />
     </button>
   </div>
 );
@@ -96,74 +104,24 @@ const TriggerWorkFlow = () => {
           Enabled
         </div>
         <div className="border rounded-md bg-white">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="purple"
-            className="size-6 "
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-            />
-          </svg>
+          <Link />
         </div>
         <div className="border h-8"></div>
         <div className="border rounded-md bg-white">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="red"
-            className="size-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
-            />
-          </svg>
+          <Trash2 className="text-red-600" />
         </div>
       </div>
       <div className="mb-6 flex justify-evenly w-full">
         <h2 className="text-lg font-semibold mb-2">Condition settings for:</h2>
         <div className="flex items-center gap-2">
-          <div className="bg-pink-600 px-1 border rounded-sm">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="white"
-              className="size-6"
-            >
-              <path
-                fillRule="evenodd"
-                d="M3.792 2.938A49.069 49.069 0 0 1 12 2.25c2.797 0 5.54.236 8.209.688a1.857 1.857 0 0 1 1.541 1.836v1.044a3 3 0 0 1-.879 2.121l-6.182 6.182a1.5 1.5 0 0 0-.439 1.061v2.927a3 3 0 0 1-1.658 2.684l-1.757.878A.75.75 0 0 1 9.75 21v-5.818a1.5 1.5 0 0 0-.44-1.06L3.13 7.938a3 3 0 0 1-.879-2.121V4.774c0-.897.64-1.683 1.542-1.836Z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
+          {/* <div className="bg-pink-600 px-1 border rounded-sm"> */}
+          <FilterIcon className="text-white bg-pink-600 rounded-lg h-9 w-9 p-1" />
+          {/* </div> */}
           <span className="px-3 py-1 rounded-md text-base font-medium">
             Update stage
           </span>
           <span className="text-gray-500">→</span>
-          <div className="bg-blue-600 px-1 border rounded-sm">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="white"
-              className="size-6"
-            >
-              <path
-                fillRule="evenodd"
-                d="M4.5 9.75a6 6 0 0 1 11.573-2.226 3.75 3.75 0 0 1 4.133 4.303A4.5 4.5 0 0 1 18 20.25H6.75a5.25 5.25 0 0 1-2.23-10.004 6.072 6.072 0 0 1-.02-.496Z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
+          <Cloud className="text-white bg-blue-700 rounded-lg h-9 w-9 p-1" />
           <span className="px-3 py-1 rounded-md text-base font-medium">
             Salesforce leads
           </span>
