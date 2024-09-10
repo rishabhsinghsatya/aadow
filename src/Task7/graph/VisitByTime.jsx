@@ -1,7 +1,7 @@
 import { Ellipsis } from "lucide-react";
 import React from "react";
 
-// Data for the visits by time heatmap
+// Data
 const data = [
   { hour: "12 am", Sun: 1, Mon: 2, Tue: 3, Wed: 4, Thu: 5, Fri: 5, Sat: 5 },
   { hour: "3 am", Sun: 1, Mon: 2, Tue: 3, Wed: 4, Thu: 5, Fri: 5, Sat: 5 },
@@ -25,8 +25,7 @@ const getColor = (value) => {
 const VisitsByTime = () => {
   return (
     <div className="flex justify-center">
-      <div className="p-6 bg-white rounded-lg shadow-lg w-full max-w-lg">
-        {/* Title */}
+      <div className="p-6 bg-white rounded-lg shadow-lg w-full max-w-xl">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-gray-700 font-semibold text-lg">Visit By Time</h2>
           <button className="text-gray-400 hover:text-gray-600">
@@ -35,22 +34,7 @@ const VisitsByTime = () => {
         </div>
 
         <div className="flex gap-2 justify-center items-center">
-          
-          {/* Heatmap grid */}
-          <div className="grid grid-cols-8 gap-[1px]">
-            {/* Days Header */}
-            <div className="col-start-2 col-span-7 grid grid-cols-7 gap-1">
-              {days.map((day) => (
-                <div
-                  key={day}
-                  className="text-center text-xs font-medium text-gray-600"
-                >
-                  {day}
-                </div>
-              ))}
-            </div>
-
-            {/* Rows with Time Labels and Heatmap Squares */}
+          <div className="grid grid-cols-8 gap-[2px]">
             {data.map((row, rowIndex) => (
               <React.Fragment key={row.hour}>
                 <div className="text-right text-xs font-medium text-gray-600 pr-2">
@@ -65,9 +49,20 @@ const VisitsByTime = () => {
                 ))}
               </React.Fragment>
             ))}
+
+            <div className="col-start-2 col-span-7 grid grid-cols-7 gap-1 mt-2">
+              {days.map((day) => (
+                <div
+                  key={`bottom-${day}`}
+                  className="text-center text-xs font-medium text-gray-600"
+                >
+                  {day}
+                </div>
+              ))}
+            </div>
           </div>
-          {/* Legend */}
-          <div className="mt-4 flex flex-col justify-center items-center space-x-2 text-xs gap-4">
+
+          <div className="flex flex-col justify-start items-start gap-2 text-xs">
             <div className="flex items-center">
               <span className="w-2 h-4 bg-blue-900 inline-block mr-1"></span>
               3,000+

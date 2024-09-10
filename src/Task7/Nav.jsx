@@ -38,7 +38,7 @@ const Nav = () => {
             </li>
             <li>
               <Link to="/salesfunnel" className="hover:text-yellow-300">
-                VisitByDevice
+                SalesFunnel
               </Link>
             </li>
             <li>

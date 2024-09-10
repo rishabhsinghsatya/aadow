@@ -22,9 +22,8 @@ ChartJS.register(
 );
 
 const GrossVolume = () => {
-  // Line chart data for "Gross Volume"
   const grossVolumeData = {
-    labels: ["0 am", "6 am", "12 pm", "6 pm", "12 am"], // X-axis labels for time
+    labels: ["0 am", "6 am", "12 pm", "6 pm", "12 am"],
     datasets: [
       {
         label: "Today",
@@ -32,7 +31,7 @@ const GrossVolume = () => {
         borderColor: "#4A90E2",
         backgroundColor: "rgba(74, 144, 226, 0.2)",
         fill: true,
-        tension: 0.4, // Smooth curve
+        tension: 0.4,
       },
       {
         label: "Yesterday",
@@ -45,7 +44,6 @@ const GrossVolume = () => {
     ],
   };
 
-  // Options for the "Gross Volume" chart
   const grossVolumeOptions = {
     plugins: {
       legend: {
@@ -74,7 +72,6 @@ const GrossVolume = () => {
     },
   };
 
-  // Line chart data for "USD Balance" and "Payouts"
   const usdBalanceData = {
     labels: ["0 am", "6 am", "12 pm", "6 pm", "12 am"],
     datasets: [
@@ -107,30 +104,30 @@ const GrossVolume = () => {
     },
     scales: {
       x: {
-        display: false, // Hide x-axis
+        display: false,
       },
       y: {
-        display: false, // Hide y-axis
+        display: false,
       },
     },
   };
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md">
-      {/* Gross Volume */}
-      <div className="mb-8">
-        <div className="flex justify-between items-center">
-          <h2 className="text-xl font-bold">$64,718.50</h2>
-          <span className="text-green-500 text-sm">12.56% ↑</span>
-        </div>
-        <p className="text-gray-500">Gross Volume</p>
-        <div className="h-55">
-          <Line data={grossVolumeData} options={grossVolumeOptions} />
+    <div className="p-6 bg-white rounded-lg shadow-md flex">
+      <div className="w-2/3 pr-6">
+        <div className="mb-8">
+          <div className="flex justify-between items-center">
+            <h2 className="text-xl font-bold">$64,718.50</h2>
+            <span className="text-green-500 text-sm">12.56% ↑</span>
+          </div>
+          <p className="text-gray-500">Gross Volume</p>
+          <div className="h-45">
+            <Line data={grossVolumeData} options={grossVolumeOptions} />
+          </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
-        {/* USD Balance */}
+      <div className="w-1/3 grid grid-cols-1 gap-6">
         <div className="p-4 bg-white rounded-lg shadow-md">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-bold">$72,168.75</h2>
@@ -141,8 +138,6 @@ const GrossVolume = () => {
             <Line data={usdBalanceData} options={smallChartOptions} />
           </div>
         </div>
-
-        {/* Payouts */}
         <div className="p-4 bg-white rounded-lg shadow-md">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-bold">$43,360.25</h2>

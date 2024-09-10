@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { Ellipsis } from "lucide-react";
 
 ChartJS.register(
   CategoryScale,
@@ -20,7 +21,7 @@ ChartJS.register(
 );
 
 const TrafficSource = () => {
-  // Data for the traffic source bar chart
+  // Data
   const data = {
     labels: ["Jan", "Mar", "May", "Jul", "Sep", "Dec"],
     datasets: [
@@ -44,7 +45,7 @@ const TrafficSource = () => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: true,
+        display: false,
         position: "top",
         labels: {
           usePointStyle: true,
@@ -67,7 +68,9 @@ const TrafficSource = () => {
           color: "#e5e7eb", // Light gray horizontal grid lines
         },
         beginAtZero: true,
+        max: 30000, // Set the maximum value on the Y-axis to 30,000
         ticks: {
+          stepSize: 10000, // Display only 0k, 10k, 20k, 30k
           callback: function (value) {
             return `$${value / 1000}k`; // Show $k values on the y-axis
           },
@@ -77,30 +80,29 @@ const TrafficSource = () => {
   };
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-lg w-full max-w-lg">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-gray-700 font-semibold text-lg">Traffic Source</h2>
-        <button className="text-gray-400 hover:text-gray-600">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path d="M6 10a2 2 0 114-0 2 2 0 01-4 0z" />
-            <path
-              fillRule="evenodd"
-              d="M2 10a8 8 0 1116 0A8 8 0 012 10zm8-6a6 6 0 100 12A6 6 0 0010 4z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
-      </div>
-
-      {/* Bar Chart */}
-      <div className="h-64">
-        <Bar data={data} options={options} />
+    <div className="flex justify-center">
+      <div className="p-6 bg-white rounded-lg shadow-lg w-full max-w-lg">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-gray-700 font-semibold text-lg">
+            Traffic Source
+          </h2>
+          <button className="text-gray-400 hover:text-gray-600">
+            <Ellipsis />
+          </button>
+        </div>
+        <div className="mt-4 mb-4 flex justify-start space-x-4 text-sm">
+          <div className="flex items-center">
+            <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+            Search Engine Traffic
+          </div>
+          <div className="flex items-center">
+            <span className="w-2 h-2 bg-sky-400 rounded-full mr-2"></span>
+            Direct Traffic
+          </div>
+        </div>
+        <div className="h-64">
+          <Bar data={data} options={options} />
+        </div>
       </div>
     </div>
   );

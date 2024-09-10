@@ -1,5 +1,5 @@
-import React from 'react';
-import { Bar } from 'react-chartjs-2';
+import React from "react";
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,21 +8,28 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const RevenueChart = () => {
   // Data for the bar chart
   const data = {
-    labels: ['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Dec'],
+    labels: ["Jan", "Mar", "May", "Jul", "Sep", "Dec"],
     datasets: [
       {
-        label: 'Revenue',
+        label: "Revenue",
         data: [30000, 15000, 25000, 18000, 12000, 28000],
-        backgroundColor: '#4285F4', // Blue color for the bars
-        borderRadius: 4, // Rounded bar edges
-        barThickness: 20, // Control bar thickness
+        backgroundColor: "#4285F4",
+        // borderRadius: 4,
+        barThickness: 10,
       },
     ],
   };
@@ -32,26 +39,34 @@ const RevenueChart = () => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: false, // Hide the legend
+        display: false,
+        position: "top",
+        labels: {
+          usePointStyle: true,
+        },
       },
       tooltip: {
-        enabled: true, // Enable tooltips
+        enabled: true,
       },
     },
     scales: {
       x: {
         grid: {
-          display: false, // Hide vertical grid lines
+          display: false,
         },
+        barPercentage: 0.8,
+        categoryPercentage: 0.5,
       },
       y: {
         grid: {
-          color: '#e5e7eb', // Light gray horizontal grid lines
+          color: "#e5e7eb",
         },
         beginAtZero: true,
+        max: 30000,
         ticks: {
+          stepSize: 10000,
           callback: function (value) {
-            return `$${value / 1000}k`; // Format y-axis values to show in $k
+            return `$${value / 1000}k`;
           },
         },
       },
@@ -59,17 +74,21 @@ const RevenueChart = () => {
   };
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-lg w-full max-w-xs">
-      {/* Revenue Number and Percent Change */}
-      <div className="mb-4 text-center">
-        <p className="text-gray-500">Revenue</p>
-        <h1 className="text-3xl font-bold">$120,210</h1>
-        <span className="text-green-500 text-sm">7.56% ↑</span>
-      </div>
+    <div className="flex justify-center">
+      <div className="p-6 bg-white rounded-lg shadow-lg w-full max-w-xs">
+        <div className="flex flex-col items-start mb-4 text-left w-full">
+          <p className="text-gray-500">Revenue</p>
+          <div className="flex items-baseline">
+            <p className="text-3xl font-bold">$120,210</p>
+            <span className="text-green-500 text-sm ml-2 font-semibold">
+              7.56% ↑
+            </span>
+          </div>
+        </div>
 
-      {/* Bar Chart */}
-      <div className="h-44">
-        <Bar data={data} options={options} />
+        <div className="h-44">
+          <Bar data={data} options={options} />
+        </div>
       </div>
     </div>
   );
