@@ -20,6 +20,7 @@ import TriggerWorkflow from "./Task6/TriggerWorkflow/TriggerWorkflow";
 import Broadcast from "./Task6/Broadcast/Broadcast";
 import LineChart from "./Task7/LineChart";
 import Nav from "./Task7/Nav";
+import SubscriberList from "./Task8/SubscriberList";
 function App() {
   // const [currentPage, setCurrentPage] = useState("Home");
 
@@ -55,7 +56,8 @@ function App() {
       {/* <TriggerWorkflow /> */}
       {/* <Broadcast/> */}
       {/* <LineChart /> */}
-      <Nav />
+      {/* <Nav /> */}
+      <SubscriberList />
     </div>
   );
 }

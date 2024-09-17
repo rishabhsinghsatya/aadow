@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "johndoe777@gmail.com",
+    "phone": "+91-9742709022",
+    "status": "Active",
+    "listname": "MyFirstList",
+    "addedOn": "Jan 4, 2024",
+    "segment": "green"
+  },
+  {
+    "id": 2,
+    "name": "Jane Doe",
+    "email": "janedoe888@gmail.com",
+    "phone": "+91-8050201083",
+    "status": "Active",
+    "listname": "SecondList",
+    "addedOn": "Feb 2, 2024",
+    "segment": "yellow"
+  },
+  {
+    "id": 3,
+    "name": "Alice Smith",
+    "email": "alice.smith@gmail.com",
+    "phone": "+91-7740201083",
+    "status": "Inactive",
+    "listname": "MyFirstList",
+    "addedOn": "Mar 4, 2024",
+    "segment": "red"
+  },
+  {
+    "id": 4,
+    "name": "Bob Johnson",
+    "email": "bobjohnson999@gmail.com",
+    "phone": "+91-9350202083",
+    "status": "Active",
+    "listname": "ThirdList",
+    "addedOn": "Apr 5, 2024",
+    "segment": "gray"
+  },
+  {
+    "id": 5,
+    "name": "Charlie Brown",
+    "email": "charliebrown111@gmail.com",
+    "phone": "+91-9750201083",
+    "status": "Inactive",
+    "listname": "FourthList",
+    "addedOn": "May 6, 2024",
+    "segment": "green"
+  },
+  {
+    "id": 6,
+    "name": "Emily Davis",
+    "email": "emilydavis123@gmail.com",
+    "phone": "+91-8850202083",
+    "status": "Active",
+    "listname": "FifthList",
+    "addedOn": "Jun 7, 2024",
+    "segment": "yellow"
+  },
+  {
+    "id": 7,
+    "name": "David White",
+    "email": "davidwhite777@gmail.com",
+    "phone": "+91-8150209083",
+    "status": "Active",
+    "listname": "SixthList",
+    "addedOn": "Jul 8, 2024",
+    "segment": "red"
+  },
+  {
+    "id": 8,
+    "name": "Grace Lee",
+    "email": "gracelee456@gmail.com",
+    "phone": "+91-7450201083",
+    "status": "Inactive",
+    "listname": "SeventhList",
+    "addedOn": "Aug 9, 2024",
+    "segment": "gray"
+  },
+  {
+    "id": 9,
+    "name": "Henry Ford",
+    "email": "henryford555@gmail.com",
+    "phone": "+91-9750209083",
+    "status": "Active",
+    "listname": "EighthList",
+    "addedOn": "Sep 10, 2024",
+    "segment": "green"
+  },
+  {
+    "id": 10,
+    "name": "Isabel King",
+    "email": "isabelking222@gmail.com",
+    "phone": "+91-9750201083",
+    "status": "Inactive",
+    "listname": "NinthList",
+    "addedOn": "Oct 11, 2024",
+    "segment": "yellow"
+  },
+  {
+    "id": 11,
+    "name": "Jake Mason",
+    "email": "jakemason888@gmail.com",
+    "phone": "+91-7750208083",
+    "status": "Active",
+    "listname": "TenthList",
+    "addedOn": "Nov 12, 2024",
+    "segment": "red"
+  },
+  {
+    "id": 12,
+    "name": "Linda Scott",
+    "email": "lindascott111@gmail.com",
+    "phone": "+91-7050201083",
+    "status": "Inactive",
+    "listname": "EleventhList",
+    "addedOn": "Dec 13, 2024",
+    "segment": "gray"
+  },
+  {
+    "id": 13,
+    "name": "Michael Stone",
+    "email": "michaelstone222@gmail.com",
+    "phone": "+91-9650201083",
+    "status": "Active",
+    "listname": "TwelfthList",
+    "addedOn": "Jan 14, 2025",
+    "segment": "green"
+  },
+  {
+    "id": 14,
+    "name": "Nina Brooks",
+    "email": "ninabrooks333@gmail.com",
+    "phone": "+91-8550202083",
+    "status": "Active",
+    "listname": "ThirteenthList",
+    "addedOn": "Feb 15, 2025",
+    "segment": "yellow"
+  },
+  {
+    "id": 15,
+    "name": "Olivia Evans",
+    "email": "oliviaevans444@gmail.com",
+    "phone": "+91-9150207083",
+    "status": "Inactive",
+    "listname": "FourteenthList",
+    "addedOn": "Mar 16, 2025",
+    "segment": "red"
+  },
+  {
+    "id": 16,
+    "name": "Peter Harris",
+    "email": "peterharris555@gmail.com",
+    "phone": "+91-8050201083",
+    "status": "Active",
+    "listname": "FifteenthList",
+    "addedOn": "Apr 17, 2025",
+    "segment": "gray"
+  },
+  {
+    "id": 17,
+    "name": "Quincy Turner",
+    "email": "quincyturner666@gmail.com",
+    "phone": "+91-9350203083",
+    "status": "Inactive",
+    "listname": "SixteenthList",
+    "addedOn": "May 18, 2025",
+    "segment": "green"
+  },
+  {
+    "id": 18,
+    "name": "Rachel Young",
+    "email": "rachelyoung777@gmail.com",
+    "phone": "+91-9650208083",
+    "status": "Active",
+    "listname": "SeventeenthList",
+    "addedOn": "Jun 19, 2025",
+    "segment": "yellow"
+  },
+  {
+    "id": 19,
+    "name": "Sam Walker",
+    "email": "samwalker888@gmail.com",
+    "phone": "+91-7750202083",
+    "status": "Active",
+    "listname": "EighteenthList",
+    "addedOn": "Jul 20, 2025",
+    "segment": "red"
+  },
+  {
+    "id": 20,
+    "name": "Tina Lewis",
+    "email": "tinalewis999@gmail.com",
+    "phone": "+91-8050205083",
+    "status": "Inactive",
+    "listname": "NineteenthList",
+    "addedOn": "Aug 21, 2025",
+    "segment": "gray"
+  }
+]
