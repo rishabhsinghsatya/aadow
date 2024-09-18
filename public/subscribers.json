@@ -7,7 +7,7 @@
     "status": "Active",
     "listname": "MyFirstList",
     "addedOn": "Jan 4, 2024",
-    "segment": "3"
+    "segment": "green"
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@
     "status": "Active",
     "listname": "SecondList",
     "addedOn": "Feb 2, 2024",
-    "segment": "2"
+    "segment": "yellow"
   },
   {
     "id": 3,
@@ -27,7 +27,7 @@
     "status": "Inactive",
     "listname": "MyFirstList",
     "addedOn": "Mar 4, 2024",
-    "segment": "3"
+    "segment": "red"
   },
   {
     "id": 4,
@@ -37,7 +37,7 @@
     "status": "Active",
     "listname": "ThirdList",
     "addedOn": "Apr 5, 2024",
-    "segment": "1"
+    "segment": "gray"
   },
   {
     "id": 5,
@@ -47,7 +47,7 @@
     "status": "Inactive",
     "listname": "FourthList",
     "addedOn": "May 6, 2024",
-    "segment": "2"
+    "segment": "green"
   },
   {
     "id": 6,
@@ -57,7 +57,7 @@
     "status": "Active",
     "listname": "FifthList",
     "addedOn": "Jun 7, 2024",
-    "segment": "3"
+    "segment": "yellow"
   },
   {
     "id": 7,
@@ -67,7 +67,7 @@
     "status": "Active",
     "listname": "SixthList",
     "addedOn": "Jul 8, 2024",
-    "segment": "2"
+    "segment": "red"
   },
   {
     "id": 8,
@@ -77,7 +77,7 @@
     "status": "Inactive",
     "listname": "SeventhList",
     "addedOn": "Aug 9, 2024",
-    "segment": "3"
+    "segment": "gray"
   },
   {
     "id": 9,
@@ -87,7 +87,7 @@
     "status": "Active",
     "listname": "EighthList",
     "addedOn": "Sep 10, 2024",
-    "segment": "0"
+    "segment": "green"
   },
   {
     "id": 10,
@@ -97,7 +97,7 @@
     "status": "Inactive",
     "listname": "NinthList",
     "addedOn": "Oct 11, 2024",
-    "segment": "2"
+    "segment": "yellow"
   },
   {
     "id": 11,
@@ -107,7 +107,7 @@
     "status": "Active",
     "listname": "TenthList",
     "addedOn": "Nov 12, 2024",
-    "segment": "3"
+    "segment": "red"
   },
   {
     "id": 12,
@@ -117,7 +117,7 @@
     "status": "Inactive",
     "listname": "EleventhList",
     "addedOn": "Dec 13, 2024",
-    "segment": "0"
+    "segment": "gray"
   },
   {
     "id": 13,
@@ -127,7 +127,7 @@
     "status": "Active",
     "listname": "TwelfthList",
     "addedOn": "Jan 14, 2025",
-    "segment": "1"
+    "segment": "green"
   },
   {
     "id": 14,
@@ -137,7 +137,7 @@
     "status": "Active",
     "listname": "ThirteenthList",
     "addedOn": "Feb 15, 2025",
-    "segment": "2"
+    "segment": "yellow"
   },
   {
     "id": 15,
@@ -147,7 +147,7 @@
     "status": "Inactive",
     "listname": "FourteenthList",
     "addedOn": "Mar 16, 2025",
-    "segment": "1"
+    "segment": "red"
   },
   {
     "id": 16,
@@ -157,7 +157,7 @@
     "status": "Active",
     "listname": "FifteenthList",
     "addedOn": "Apr 17, 2025",
-    "segment": "0"
+    "segment": "gray"
   },
   {
     "id": 17,
@@ -167,7 +167,7 @@
     "status": "Inactive",
     "listname": "SixteenthList",
     "addedOn": "May 18, 2025",
-    "segment": "3"
+    "segment": "green"
   },
   {
     "id": 18,
@@ -177,7 +177,7 @@
     "status": "Active",
     "listname": "SeventeenthList",
     "addedOn": "Jun 19, 2025",
-    "segment": "3"
+    "segment": "yellow"
   },
   {
     "id": 19,
@@ -187,17 +187,7 @@
     "status": "Active",
     "listname": "EighteenthList",
     "addedOn": "Jul 20, 2025",
-    "segment": "2"
-  },
-  {
-    "id": 19,
-    "name": "Sam Walker",
-    "email": "samwalker888@gmail.com",
-    "phone": "+91-7750202083",
-    "status": "Active",
-    "listname": "EighteenthList",
-    "addedOn": "Jul 20, 2025",
-    "segment": "1"
+    "segment": "red"
   },
   {
     "id": 20,
@@ -207,6 +197,6 @@
     "status": "Inactive",
     "listname": "NineteenthList",
     "addedOn": "Aug 21, 2025",
-    "segment": "3"
+    "segment": "gray"
   }
 ]

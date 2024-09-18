@@ -6,9 +6,9 @@ const SubscriberList = () => {
   const [filterStatus, setFilterStatus] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [subscribers, setSubscribers] = useState([]);
-  const pageSize = 5; // Number of items per page
+  const pageSize = 5; 
 
-  // Fetch subscriber data from JSON file
+  // Fetch subscriber from JSON file
   useEffect(() => {
     fetch("./subscribers.json")
       .then((response) => response.json())
@@ -39,26 +39,51 @@ const SubscriberList = () => {
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
-    setCurrentPage(1); // Reset to the first page on search
+    setCurrentPage(1); 
   };
 
   const handleFilterChange = (event) => {
     setFilterStatus(event.target.value);
-    setCurrentPage(1); // Reset to the first page on filter
+    setCurrentPage(1); 
   };
 
+  //   const renderSegmentBadges = (segment) => {
+  //     const colors = {
+  //       green: "bg-green-500",
+  //       yellow: "bg-yellow-500",
+  //       red: "bg-red-500",
+  //       gray: "bg-gray-500",
+  //     };
+  //     return (
+  //       <span
+  //         className={`inline-block w-2 h-2 rounded-full ${colors[segment]}`}
+  //       />
+  //     );
+  //   };
+
   const renderSegmentBadges = (segment) => {
-    const colors = {
-      green: "bg-green-500",
-      yellow: "bg-yellow-500",
-      red: "bg-red-500",
-      gray: "bg-gray-500",
-    };
-    return (
-      <span
-        className={`inline-block w-2 h-2 rounded-full ${colors[segment]}`}
-      />
-    );
+    const badges = [];
+    for (let i = 0; i < 3; i++) {
+      badges.push(
+        <span
+          key={i}
+          className={`inline-block w-7 h-2 rounded-full ${
+            segment === "green"
+              ? "bg-green-500"
+              : segment === "yellow"
+              ? i < 2
+                ? "bg-yellow-500"
+                : "bg-gray-300"
+              : segment === "red"
+              ? i < 1
+                ? "bg-red-500"
+                : "bg-gray-300"
+              : "bg-gray-300"
+          }`}
+        />
+      );
+    }
+    return <div className="flex space-x-1">{badges}</div>;
   };
 
   const renderPagination = () => {
