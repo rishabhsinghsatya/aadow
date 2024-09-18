@@ -6,14 +6,14 @@ const SubscriberList = () => {
   const [filterStatus, setFilterStatus] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [subscribers, setSubscribers] = useState([]);
-  const pageSize = 6; // Number of items per page
+  const pageSize = 5; // Number of items per page
 
   // Fetch subscriber data from JSON file
   useEffect(() => {
-    fetch("./subscribers.json");
-    //   .then((response) => response.json())
-    //   .then((data) => setSubscribers(data))
-    //   .catch((error) => console.error("Error loading subscribers:", error));
+    fetch("./subscribers.json")
+      .then((response) => response.json())
+      .then((data) => setSubscribers(data))
+      .catch((error) => console.error("Error loading subscribers:", error));
   }, []);
 
   const filteredSubscribers = subscribers
@@ -67,7 +67,7 @@ const SubscriberList = () => {
       pages.push(
         <button
           key={i}
-          className={`w-8 h-8 rounded ${
+          className={`w-10 h-8 border-2 border-gray-300 rounded-lg ${
             i === currentPage
               ? "bg-gray-200"
               : "bg-white border border-gray-300"
@@ -82,15 +82,15 @@ const SubscriberList = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-between items-center mb-4">
+    <div className="p-4">
+      <div className="flex justify-between items-center h-10 mb-6">
         <div className="relative">
           <input
             type="text"
             placeholder="Search Name, Email, Phone or Listname..."
             value={searchTerm}
             onChange={handleSearch}
-            className="pl-10 pr-4 py-2 w-80 border border-gray-300 rounded"
+            className="pl-10 pr-4 py-2 w-96 border-2 border-gray-300 rounded-lg focus:outline-none text-base font-semibold "
           />
           <Search
             className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
@@ -100,7 +100,7 @@ const SubscriberList = () => {
         <select
           value={filterStatus}
           onChange={handleFilterChange}
-          className="px-4 py-2 border border-gray-300 rounded"
+          className="px-4 py-2 border-2 border-gray-300 rounded-lg w-40 text-gray-400 font-semibold focus:outline-none"
         >
           <option value="All">All</option>
           <option value="Active">Active</option>
@@ -108,25 +108,25 @@ const SubscriberList = () => {
         </select>
       </div>
 
-      <table className="w-full">
+      <table className="w-full max-h-full">
         <thead>
-          <tr className="bg-gray-50">
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          <tr className="border-2 border-x-0 border-gray-300">
+            <th className="px-6 py-3 text-left text-sm font-extrabold text-black uppercase tracking-wider">
               Subscriber
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-left text-sm font-extrabold text-black uppercase tracking-wider">
               Status
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-left text-sm font-extrabold text-black uppercase tracking-wider">
               Listname
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-left text-sm font-extrabold text-black uppercase tracking-wider">
               Added on
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-left text-sm font-extrabold text-black uppercase tracking-wider">
               Segment
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+            <th className="px-6 py-3 text-left text-sm font-extrabold text-black uppercase tracking-wider"></th>
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
@@ -137,15 +137,15 @@ const SubscriberList = () => {
                   <div className="flex-shrink-0 h-10 w-10">
                     <img
                       className="h-10 w-10 rounded-full"
-                      src="https://picsum.photos/id/237/200/300"
+                      src="https://picsum.photos/id/310/200/300"
                       alt=""
                     />
                   </div>
                   <div className="ml-4">
-                    <div className="text-sm font-medium text-gray-900">
+                    <div className="text-base font-medium text-gray-900">
                       {subscriber.name}
                     </div>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm font-medium text-gray-500">
                       {subscriber.email} | {subscriber.phone}
                     </div>
                   </div>
@@ -153,19 +153,19 @@ const SubscriberList = () => {
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
                 <span
-                  className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                  className={`px-5 py-2 inline-flex text-sm font-semibold leading-5 rounded-full ${
                     subscriber.status === "Active"
-                      ? "bg-green-100 text-green-800"
-                      : "bg-red-100 text-red-800"
+                      ? "bg-green-100 text-green-800 border border-green-800"
+                      : "bg-red-100 text-red-800 border border-red-800"
                   }`}
                 >
                   {subscriber.status}
                 </span>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold leading-5 text-gray-500">
                 {subscriber.listname}
               </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold leading-5 text-gray-500">
                 {subscriber.addedOn}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -181,25 +181,29 @@ const SubscriberList = () => {
         </tbody>
       </table>
 
-      <div className="flex justify-between items-center mt-4">
+      <div className="flex justify-between items-center mt-12">
         <button
-          className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded"
+          className="flex items-center space-x-2 px-4 py-2 border-2 border-gray-300 rounded-lg"
           onClick={() =>
             setCurrentPage((prevPage) => Math.max(prevPage - 1, 1))
           }
         >
-          <ChevronLeft className="h-4 w-4" />
-          <span>Previous</span>
+          <ChevronLeft className="h-5 w-5" />
+          <span className="py-0 text-base leading-none font-medium text-gray-900">
+            Previous
+          </span>
         </button>
-        <div className="flex space-x-2">{renderPagination()}</div>
+        <div className="flex gap-2">{renderPagination()}</div>
         <button
-          className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded"
+          className="flex items-center space-x-2 px-4 py-2 border-2 border-gray-300 rounded-lg"
           onClick={() =>
             setCurrentPage((nextPage) => Math.min(nextPage + 1, totalPages))
           }
         >
-          <span>Next</span>
-          <ChevronRight className="h-4 w-4" />
+          <span className="py-0 text-base leading-none font-medium text-gray-900">
+            Next
+          </span>
+          <ChevronRight className="h-5 w-5" />
         </button>
       </div>
     </div>
