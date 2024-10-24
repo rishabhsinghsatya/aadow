@@ -21,6 +21,9 @@ import Broadcast from "./Task6/Broadcast/Broadcast";
 import LineChart from "./Task7/LineChart";
 import Nav from "./Task7/Nav";
 import SubscriberList from "./Task8/SubscriberList";
+import Calender from "./Task9/Calender";
+import CalendarView from "./Task9/CalenderView";
+import ContentGenerator from "./Task10/ContentGenerator";
 function App() {
   // const [currentPage, setCurrentPage] = useState("Home");
 
@@ -57,7 +60,10 @@ function App() {
       {/* <Broadcast/> */}
       {/* <LineChart /> */}
       {/* <Nav /> */}
-      <SubscriberList />
+      {/* <SubscriberList /> */}
+      {/* <Calender /> */}
+      {/* <CalendarView /> */}
+      <ContentGenerator />
     </div>
   );
 }
